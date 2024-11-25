@@ -1,0 +1,57 @@
+/* Carousel item container */
+.carousel-item {
+    display: flex; /* Ensure horizontal layout */
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px; /* Add spacing between thumbnails */
+    cursor: pointer;
+  }
+  
+  /* Thumbnail styling */
+  .carousel-thumbnail {
+    position: relative;
+    width: 500px; /* Fixed width for thumbnails */
+    height: 300px; /* Fixed height for thumbnails */
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .carousel-thumbnail:hover {
+    transform: scale(1.05); /* Zoom on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Add shadow */
+  }
+  
+  /* Image styling */
+  .carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fits inside the thumbnail */
+  }
+  
+  /* Overlay effect */
+  .carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .carousel-thumbnail:hover .carousel-overlay {
+    opacity: 1; /* Overlay appears on hover */
+  }
+  
+  .carousel-overlay p {
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  
