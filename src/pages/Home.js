@@ -1,6 +1,6 @@
 import React from 'react';
 import HeroBanner from '../components/HeroBanner';
-import Carousel from '../components/Carousel';
+import Carousel from '../components/VideoCarousel';
 
 const projects = [
   { id: 1, title: 'Web App', description: 'A powerful web app.', image: '/images/web_app.jpg' },

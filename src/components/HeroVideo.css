@@ -1,0 +1,55 @@
+/* HeroVideo container */
+.hero-video {
+    position: relative;
+    height: 100vh; /* Fullscreen height for the hero section */
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Background video */
+  .hero-video-background {
+    position: absolute;
+    top: -20%; /* Shift the video upward to hide black bars */
+    left: 0;
+    width: 100%;
+    height: 130%; /* Scale to ensure black bars are hidden */
+    object-fit: cover; /* Ensures the video fills the area */
+    z-index: -2;
+  }
+  
+  /* Gradient fade-to-gray overlay */
+  .hero-gradient {
+    position: absolute;
+    
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%; /* Adjust height for fade */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgba(20, 20, 20, 0.99) 75%, #141414 100%);
+    z-index: -1;
+  }
+  
+  /* Content overlay */
+  .hero-content {
+    position: absolute;
+    bottom: 30%;
+    left: 5%;
+    color: white;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+  
+  /* Title styling */
+  .hero-title {
+    font-size: 4rem; /* Adjust for prominence */
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Description styling */
+  .hero-description {
+    font-size: 1.5rem;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+  

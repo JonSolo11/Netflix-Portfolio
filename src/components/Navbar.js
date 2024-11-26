@@ -1,36 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import './Navbar.css';
 
 function Navbar() {
-  const navStyle = {
-    backgroundColor: '#141414',
-    color: '#fff',
-    padding: '10px 20px',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    position: 'fixed',
-    top: 0,
-    width: '100%',
-    zIndex: 1000,
-  };
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const linkStyle = {
-    textDecoration: 'none',
-    color: '#fff',
-    margin: '0 10px',
-  };
+  // Detect scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <nav style={navStyle}>
-      <h1 style={{ fontSize: '24px' }}>Netflix Portfolio</h1>
-      <div>
-        <a href="/" style={linkStyle}>
+    <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
+      <img src="/logo.png" alt="Netflix Portfolio Logo" className="navbar-logo" />
+      <div className="navbar-links">
+        <a href="/" className="navbar-link navbar-link-active">
           Home
         </a>
-        <a href="/projects" style={linkStyle}>
+        <a href="/projects" className="navbar-link">
           Projects
         </a>
-        <a href="/about" style={linkStyle}>
+        <a href="/about" className="navbar-link">
           About
         </a>
       </div>

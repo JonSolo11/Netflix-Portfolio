@@ -1,50 +1,27 @@
 import React from 'react';
+import './HeroVideo.css';
 
 function HeroVideo() {
-  const heroStyle = {
-    position: 'relative',
-    width: '100%',
-    height: '70vh',
-    overflow: 'hidden',
-  };
-
-  const videoStyle = {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  };
-
-  const overlayStyle = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4))',
-    zIndex: 1,
-  };
-
-  const textStyle = {
-    position: 'absolute',
-    bottom: '20px',
-    left: '20px',
-    color: '#fff',
-    zIndex: 2,
-  };
-
   return (
-    <div style={heroStyle}>
+    <div className="hero-video">
+      {/* Background video */}
       <video
-        style={videoStyle}
-        src="/GAMEDEMO.mp4"
+        className="hero-video-background"
+        src="/GAMEDEMO.mp4" // Ensure the file path is correct
         autoPlay
         muted
         loop
       ></video>
-      <div style={overlayStyle}></div>
-      <div style={textStyle}>
-        <h1>Featured Video Title</h1>
-        <p>Some exciting description about this video.</p>
+
+      {/* Gradient fade-to-gray overlay */}
+      <div className="hero-gradient"></div>
+
+      {/* Content overlay */}
+      <div className="hero-content">
+        <h1 className="hero-title">Title</h1>
+        <p className="hero-description">
+          Description
+        </p>
       </div>
     </div>
   );

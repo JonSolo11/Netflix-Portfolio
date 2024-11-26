@@ -1,24 +1,19 @@
 import React from 'react';
+import './HeroBanner.css';
 
-function HeroBanner() {
-  const bannerStyle = {
-    background: 'url(/path-to-your-image.jpg) center/cover no-repeat',
-    color: '#fff',
-    height: '70vh',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    padding: '20px',
-  };
-
+function HeroBanner({ project }) {
   return (
-    <div style={bannerStyle}>
-      <h1 style={{ fontSize: '48px', marginBottom: '20px' }}>Welcome to My Portfolio</h1>
-      <p style={{ fontSize: '20px', maxWidth: '600px' }}>
-        Explore my best work, from web apps to game projects, and see what I can create!
-      </p>
+    <div
+      className="hero-banner"
+      style={{ backgroundImage: `url(${project.imageUrl})` }}
+    >
+      <div className="hero-overlay">
+        <div className="hero-content">
+          <h1 className="hero-title">{project.title}</h1>
+          <p className="hero-description">{project.description}</p>
+          <button className="hero-button">View Project</button>
+        </div>
+      </div>
     </div>
   );
 }
