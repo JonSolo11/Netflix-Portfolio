@@ -23,11 +23,6 @@ a {
   transition: transform 0.3s ease;
 }
 
-.carousel-item:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-}
-
 .overlay {
   opacity: 1 !important; /* Ensures overlay appears on hover */
 }
