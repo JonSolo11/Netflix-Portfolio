@@ -1,133 +1,99 @@
 /* Carousel item container */
 .carousel-item {
-    display: flex; /* Ensure horizontal layout */
-    justify-content: center;
-    align-items: center;
-    padding: 0 10px; /* Add spacing between thumbnails */
-    cursor: pointer;
-  }
-  
-  /* Thumbnail styling */
-  .carousel-thumbnail {
-    position: relative;
-    width: 400px; /* Fixed width for thumbnails */
-    height: 225px; /* Fixed height for thumbnails */
-    overflow: hidden;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-
-  
-  /* Image styling */
-  .carousel-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures image fits inside the thumbnail */
-  }
-  
-  /* Overlay effect */
-  .carousel-overlay {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 1.0); /* Semi-transparent overlay */
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
-  }
-  
-  .carousel-thumbnail:hover .carousel-overlay {
-    opacity: 1; /* Overlay appears on hover */
-  }
-  
-  .carousel-overlay p {
-    font-size: 1rem;
-    margin: 0;
-  }
-
-  /* Carousel container adjustments */
-.slick-list {
-  overflow: visible !important; /* Allow hover cards to expand outside */
+  position: relative;
+  display: flex; /* Ensure horizontal layout */
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px; /* Add spacing between thumbnails */
+  cursor: pointer;
 }
 
+/* Thumbnail container */
+.thumbnail-container {
+  position: relative;
+  width: 100%; /* Full width of the card */
+  padding-top: 56.25%; /* Maintain 16:9 aspect ratio */
+  overflow: hidden; /* Hide overflowing parts of the image */
+  border-radius: 8px 8px 0 0; /* Top rounded corners */
+  background: #000; /* Background for empty space */
+}
 
-  /* Card container */
-  .card-container {
-    position: relative;
-    width: 90%;
-    padding-top: 56.25%; /* Maintain 16:9 aspect ratio */
-    border-radius: 8px;
-    overflow: hidden;
-    background: #000;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    transform-origin: center bottom; /* Set the expansion point */
-    z-index: -1;
-  }
-  
-  .card-container.hovered {
-    position: absolute;
-    top: -100%; /* Adjust this value to control how much it expands upward */
-    left: 0;
-    transform: scale(1.3); /* Enlarges the card on hover */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8); 
-    z-index: 1; /* Ensure it appears above other cards */
-  }
-
-  .card-container:not(.hovered) {
-    transform: none !important; /* Ensure no scaling on non-hovered cards */
-    pointer-events: none; /* Prevent interaction with non-hovered cards */
-    z-index: -1; /* Push non-hovered cards to the back */
-  }
-
-/* Thumbnail and video styling */
-.thumbnail, .video-preview {
+/* Thumbnail image */
+.thumbnail {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Ensures the thumbnail fills the container */
+  transform: translate(-50%, -50%);
+  transition: transform 1.0 ease, box-shadow 0.3s ease;
 }
 
 
+
+.carousel-wrapper {
+  position: relative;
+  z-index: 1; /* Default for non-hovered carousel */
+}
+
+.carousel-wrapper:hover {
+  z-index: 10; /* Bring hovered carousel to the front */
+}
+
+/* Card container */
+.card-container {
+  position: relative;
+  width: 90%;
+  border-radius: 8px; /* Rounded corners for the entire card */
+  overflow: hidden;
+  background: #000;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  transform-origin: center bottom; /* Expand from the bottom center */
+}
+
+/* Hover effect */
+.card-container.hovered {
+  position: absolute;
+  transform: scale(1.3); /* Enlarges the card */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8); /* Add shadow */
+  z-index: 9999; /* Ensure it appears above all elements */
+}
 
 /* Card details */
 .card-details {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  position: relative;
   padding: 15px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
   box-sizing: border-box;
-  transform: translateY(100%);
-  opacity: 0;
-  transition: transform 0.5s ease, opacity 0.3s ease;
-}
-
-.card-container.hovered .card-details {
+  border-radius: 0 0 8px 8px; /* Bottom rounded corners */
+  text-align: left;
   transform: translateY(0);
+  opacity: 1; /* Visible by default */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.card-container.hovered .card-details {
+  display: block; /* Show the details when hovered */
   opacity: 1;
 }
-
-/* Video title */
+/* Title and metadata */
 .video-title {
   font-size: 1.2rem;
-  margin: 0 0 10px;
+  margin-bottom: 10px;
 }
 
-/* Buttons */
+.meta {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Buttons in hover details */
 .buttons {
   display: flex;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .play-button {
@@ -137,7 +103,6 @@
   border-radius: 4px;
   padding: 5px 10px;
   cursor: pointer;
-  font-size: 1rem;
 }
 
 .icon-button {
@@ -157,5 +122,7 @@
   color: #ccc;
 }
 
-  
-  
+/* Carousel adjustments */
+.slick-list {
+  overflow: visible !important; /* Allow hovered items to expand outside */
+}
