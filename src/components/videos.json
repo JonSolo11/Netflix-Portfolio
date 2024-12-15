@@ -1,0 +1,97 @@
+{
+    "carousels": [
+        {
+            "title": "Turn-based Roguelike Card Game",
+            "videos": [
+                {
+                    "id": 1,
+                    "title": "Battle",
+                    "thumbnail": "/thumbnails/2356-1.jpg",
+                    "src": "/GAMEDEMO.mp4",
+                    "tech": "Unity | C#"
+                },
+                {
+                    "id": 2,
+                    "title": "Battle",
+                    "thumbnail": "/thumbnails/battle-tn.jpg",
+                    "src": "/battle.mp4",
+                    "tech": "Unity | C#"
+                },
+                {
+                    "id": 3,
+                    "title": "Video 3",
+                    "thumbnail": "/thumbnails/youtube background.jpg",
+                    "src": "/GAMEDEMO.mp4"
+                },
+                {
+                    "id": 4,
+                    "title": "Video 4",
+                    "thumbnail": "/thumbnails/octopath-traveler-xbox-one.jpg",
+                    "src": "/GAMEDEMO.mp4"
+                }
+            ]
+        },
+        {
+            "title": "New Releases",
+            "videos": [
+                {
+                    "id": 1,
+                    "title": "Battle",
+                    "thumbnail": "/thumbnails/2356-1.jpg",
+                    "src": "/GAMEDEMO.mp4",
+                    "tech": "Unity | C#"
+                },
+                {
+                    "id": 2,
+                    "title": "Battle",
+                    "thumbnail": "/thumbnails/battle-tn.jpg",
+                    "src": "/battle.mp4",
+                    "tech": "Unity | C#"
+                },
+                {
+                    "id": 3,
+                    "title": "Video 3",
+                    "thumbnail": "/thumbnails/youtube background.jpg",
+                    "src": "/GAMEDEMO.mp4"
+                },
+                {
+                    "id": 4,
+                    "title": "Video 4",
+                    "thumbnail": "/thumbnails/octopath-traveler-xbox-one.jpg",
+                    "src": "/GAMEDEMO.mp4"
+                }
+            ]
+        },
+        {
+            "title": "Recommended for You",
+            "videos": [
+                {
+                    "id": 1,
+                    "title": "Battle",
+                    "thumbnail": "/thumbnails/2356-1.jpg",
+                    "src": "/GAMEDEMO.mp4",
+                    "tech": "Unity | C#"
+                },
+                {
+                    "id": 2,
+                    "title": "Battle",
+                    "thumbnail": "/thumbnails/battle-tn.jpg",
+                    "src": "/battle.mp4",
+                    "tech": "Unity | C#"
+                },
+                {
+                    "id": 3,
+                    "title": "Video 3",
+                    "thumbnail": "/thumbnails/youtube background.jpg",
+                    "src": "/GAMEDEMO.mp4"
+                },
+                {
+                    "id": 4,
+                    "title": "Video 4",
+                    "thumbnail": "/thumbnails/octopath-traveler-xbox-one.jpg",
+                    "src": "/GAMEDEMO.mp4"
+                }
+            ]
+        }
+    ]
+}

@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 import "./VideoCarousel.css";
 import { wait } from "@testing-library/user-event/dist/utils";
+import { useNavigate } from "react-router-dom";
+
 
 function VideoCarousel({ title, videos, heroVideoRef }) {
   const [hoveredCard, setHoveredCard] = useState(null); // Track the currently hovered card
+
+  const navigate = useNavigate();
+
+  const handlePlay = (video) => {
+    navigate("/player", { state: { title: video.title, src: video.src } });
+  };
 
   const settings = {
     dots: false,
@@ -86,9 +94,9 @@ function VideoCarousel({ title, videos, heroVideoRef }) {
               </div>
                 <div className="card-details">
                   <h3 className="video-title">{video.title}</h3>
-                  <div className="meta">TV-MA | 3 Seasons | HD</div>
+                  <div className="meta">{video.tech ? video.tech : "| TV-MA | 3 Seasons | HD"}</div>
                   <div className="buttons">
-                    <button className="play-button">▶ Play</button>
+                  <button className="play-button" onClick={() => handlePlay(video)}>▶ Play</button>
                     <button className="icon-button">+</button>
                   </div>
                 </div>

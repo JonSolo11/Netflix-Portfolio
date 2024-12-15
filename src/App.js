@@ -1,53 +1,54 @@
 import React, { useRef } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HeroVideo from "./components/HeroVideo";
 import VideoCarousel from "./components/VideoCarousel";
+import VideoPlayer from "./components/VideoPlayer";
 
-const videos = [
-  {
-    id: 1,
-    title: "Video 1",
-    thumbnail: "/thumbnails/2356-1.jpg",
-    src: "/GAMEDEMO.mp4",
-  },
-  {
-    id: 2,
-    title: "Video 2",
-    thumbnail: "/thumbnails/welcome_to_the_world_of_pokemon__by_sergiart_d9iasyv-fullview.jpg",
-    src: "/GAMEDEMO.mp4",
-  },
-  {
-    id: 3,
-    title: "Video 3",
-    thumbnail: "/thumbnails/youtube background.jpg",
-    src: "/GAMEDEMO.mp4",
-  },
-  {
-    id: 4,
-    title: "Video 4",
-    thumbnail: "/thumbnails/octopath-traveler-xbox-one.jpg",
-    src: "/GAMEDEMO.mp4",
-  },
-];
+import videosData from "./components/videos.json";
 
-function App() {
-  const heroVideoRef = useRef(null); // Reference to the Hero Video
+function AppContent() {
+  const heroVideoRef = useRef(null);
+  const location = useLocation();
+
+  // Determine if the navbar should be hidden
+  const shouldHideNavbar = location.pathname === "/player";
 
   return (
     <div>
-      <Navbar />
-      <HeroVideo ref={heroVideoRef} />
-      {/* Overlapping carousel */}
-      <div style={{ marginTop: "-200px" }}>
-        <VideoCarousel title="Trending Now" videos={videos} heroVideoRef={heroVideoRef} />
-      </div>
-      <div>
-        <VideoCarousel title="New Releases" videos={videos} heroVideoRef={heroVideoRef} />
-        <VideoCarousel title="Recommended for You" videos={videos} heroVideoRef={heroVideoRef} />
-      </div>
-      <Footer />
+      {/* Pass hideNavbar prop to Navbar */}
+      <Navbar hideNavbar={shouldHideNavbar} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div>
+              <HeroVideo ref={heroVideoRef} />
+              {videosData.carousels.map((carousel, index) => (
+                <div key={index} style={index === 0 ? { marginTop: "-200px" } : {}}>
+                  <VideoCarousel
+                    title={carousel.title}
+                    videos={carousel.videos}
+                    heroVideoRef={heroVideoRef}
+                  />
+                </div>
+              ))}
+              {!shouldHideNavbar && <Footer />} {/* Hide Footer if navbar is hidden */}
+            </div>
+          }
+        />
+        <Route path="/player" element={<VideoPlayer />} />
+      </Routes>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 

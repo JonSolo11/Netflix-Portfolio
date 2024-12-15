@@ -13,7 +13,7 @@
     left: 0;
     width: 100%;
     height: 130%; /* Scale to ensure black bars are hidden */
-    object-fit: cover; /* Ensures the video fills the area */
+    object-fit: fill; /* Ensures the video fills the area */
     z-index: -2;
   }
   
